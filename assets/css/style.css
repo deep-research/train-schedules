@@ -1,0 +1,12 @@
+.jumbotron {
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-family: 'Cinzel', serif;
+	background-color: khaki;
+	color: #744d25;
+}
+
+.lead {
+	font-size: 200%;
+}
