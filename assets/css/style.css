@@ -7,11 +7,13 @@
 	color: #744d25;
 }
 
+/*Jumbotron Subtitle*/
 .lead {
 	font-size: 200%;
 	letter-spacing: 4px;
 }
 
+/*Resize image*/
 .container img {
     width: 600px; /* you can use % */
     height: auto;
@@ -42,5 +44,9 @@ button {
 }
 
 button:hover {
+	background-color: rgba(85, 107, 47, 0.75);
+}
+
+body {
 	background-color: rgba(85, 107, 47, 0.75);
 }
