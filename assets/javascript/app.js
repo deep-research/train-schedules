@@ -40,17 +40,31 @@ $(document).ready( function() {
 
 	// Data Retrieval
 	database.ref().on("child_added", function(childSnapshot) {
-	      var childData = childSnapshot.val();
-	      var trainName = childData.name
-	      var trainDestination = childData.destination
-	      var startTime = childData.time
-	      var trainFrequency = childData.frequency
+	    var childData = childSnapshot.val();
+	    var trainName = childData.name
+	    var trainDestination = childData.destination
+	    var startTime = childData.time
+	    var trainFrequency = childData.frequency
 
-	      // Display in the Table
-	      $("#train-rows").append("<tr>" +
-	      						  "<td>" + trainName + "</td>" +
-	      						  "<td>" + trainDestination + "</td>" +
-	      						  "<td>" + trainFrequency + " minutes" + "</td>" +
-	      						  "</tr>");
+		var startTimeConverted = moment(startTime, "HH:mm").subtract(1, "years");
+
+    	var currentTime = moment();
+
+	    var diffTime = moment().diff(moment(startTimeConverted), "minutes");
+
+	    var tRemainder = diffTime % trainFrequency;
+
+	    var tMinutesTillTrain = trainFrequency - tRemainder;
+
+	    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+
+	    // Display in the Table
+	    $("#train-rows").append("<tr>" +
+	      						"<td>" + trainName + "</td>" +
+	      						"<td>" + trainDestination + "</td>" +
+	      						"<td>" + trainFrequency + " minutes" + "</td>" +
+	      						"<td>" + moment(nextTrain).format("HH:mm") + "</td>" +
+	      						"<td>" + tMinutesTillTrain + " minutes" + "</td>" +
+	      						"</tr>");
 	});
 });

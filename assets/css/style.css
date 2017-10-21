@@ -19,7 +19,7 @@
 }
 
 /*Resize image*/
-.container img {
+img {
     width: 600px; /* you can use % */
     height: auto;
 }
