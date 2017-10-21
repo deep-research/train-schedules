@@ -1,8 +1,10 @@
+/*Container Margins*/
 .container {
 	margin-bottom: 50px;
 	margin-top: 50px;
 }
 
+/*Jumbotron Sizing and Color*/
 .jumbotron {
 	text-align: center;
 	padding-top: 30px;
@@ -24,18 +26,22 @@ img {
     height: auto;
 }
 
+/*Left alignment on anything that isn't centered*/
 h2, form {
 	text-align: left;
 }
 
+/*Table  Border - Top*/
 .table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
 	border-top: darkolivegreen 1px solid;
 }
 
+/*Table Border - Bottom*/
 .table thead > tr > th {
 	border-bottom: darkolivegreen 2px solid;
 }
 
+/*Train Form Sizing*/
 #train-form {
 	border: solid rgba(85, 107, 47, 0.75) 5px;
 	border-radius: 15px;
@@ -43,15 +49,18 @@ h2, form {
 	padding: 20px;
 }
 
+/*Button Colors*/
 button {
 	background-color: rgba(85, 107, 47, 0.85);
 	color: white;
 }
 
+/*Button color on hover*/
 button:hover {
 	background-color: rgba(85, 107, 47, 0.75);
 }
 
+/*Background color*/
 body {
 	background-color: rgba(85, 107, 47, 0.75);
 }
