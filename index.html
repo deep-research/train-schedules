@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Train Schedules</title>
+	<title>The Train Guide</title>
 
 	<!-- CSS Reset -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
@@ -21,10 +21,10 @@
 		<div class="jumbotron">
 		    <div id="title-text">
 			    <!-- Title -->
-			    <h1 class="display-3">Train Scheduler</h1>
+			    <h1 class="display-3">The Train Guide</h1>
 
 			    <!-- Subtitle -->
-			    <p class="lead">- Check your train's time! -</p>
+			    <p class="lead">- Departure time listing -</p>
 		    </div>
 
 			<!-- Train Clipart Image -->
@@ -42,30 +42,11 @@
 				        <th scope="col">Minutes Away</th>
 				    </tr>
 				</thead>
-				<tbody id="train-rows">
-<!-- 				<tr>
-				        <th scope="row">1</th>
-				        <td>Mark</td>
-				        <td>Otto</td>
-				        <td>@mdo</td>
-				        <td>@mdo</td>
-				    </tr>
-				    <tr>
-				        <th scope="row">2</th>
-				        <td>Jacob</td>
-				        <td>Thornton</td>
-				        <td>@fat</td>
-				        <td>@mdo</td>
-				    </tr>
-				    <tr>
-				        <th scope="row">3</th>
-				        <td>Larry</td>
-				        <td>the Bird</td>
-				        <td>@twitter</td>
-				        <td>@mdo</td>
-				    </tr> -->
-				</tbody>
+				<tbody id="train-rows"></tbody>
 			</table>
+
+			<!-- Refresh Button -->
+			<button class="btn btn-lg" id="refresh-btn">Refresh</button>
 			<br>
 
 			<!-- Train Input Form Heading -->
@@ -109,6 +90,9 @@
 
 	<!-- jQuery CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Moment JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.js"></script>
 
 	<!-- My Javascript File -->
 	<script type="text/javascript" src="assets/javascript/app.js"></script>

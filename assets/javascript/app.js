@@ -11,13 +11,18 @@ $(document).ready( function() {
 	firebase.initializeApp(config);;
 	var database = firebase.database();
 
-	// New Train Variables
+	// New Train Information
 	var trainName;
 	var trainDestination;
 	var startTime;
 	var trainFrequency;
 
-	// Submit Button Click Event
+	// Refresh Button
+	$("#refresh-btn").click(function() {
+    	location.reload();
+	});
+
+	// Submit Button
 	$("#submit-btn").on("click", function(event) {
 		event.preventDefault();
 		trainName = $("#train-name").val().trim();
@@ -33,12 +38,19 @@ $(document).ready( function() {
 		});
 	});
 
+	// Data Retrieval
 	database.ref().on("child_added", function(childSnapshot) {
 	      var childData = childSnapshot.val();
+	      var trainName = childData.name
+	      var trainDestination = childData.destination
+	      var startTime = childData.time
+	      var trainFrequency = childData.frequency
+
+	      // Display in the Table
 	      $("#train-rows").append("<tr>" +
-	      						  "<td>" + childData.name + "</td>" +
-	      						  "<td>" + childData.destination + "</td>" +
-	      						  "<td>" + childData.time + "</td>" +
+	      						  "<td>" + trainName + "</td>" +
+	      						  "<td>" + trainDestination + "</td>" +
+	      						  "<td>" + trainFrequency + " minutes" + "</td>" +
 	      						  "</tr>");
 	});
 });
