@@ -22,6 +22,16 @@ $(document).ready( function() {
     	location.reload();
 	});
 
+	$("body").on("click", ".del-btn", function() {
+		var rowId = $(this).closest("tr").children("td:first").text();
+		$(this).closest("tr").remove();
+		var dataKey
+		database.ref().orderByChild("name").equalTo(rowId).on("child_added", function(snapshot) {
+  			dataKey = snapshot.key;
+		});
+		database.ref().child(dataKey).remove();
+	});
+
 	// Submit Button
 	$("#submit-btn").on("click", function(event) {
 		event.preventDefault();
@@ -63,12 +73,21 @@ $(document).ready( function() {
 	    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 
 	    // Display latest train inforamtion in the web table
-	    $("#train-rows").append("<tr>" +
+	    $("#train-rows").append("<tr train='" + trainName + "'>" +
 	      						"<td>" + trainName + "</td>" +
 	      						"<td>" + trainDestination + "</td>" +
 	      						"<td>" + trainFrequency + " minutes" + "</td>" +
 	      						"<td>" + moment(nextTrain).format("HH:mm") + "</td>" +
 	      						"<td>" + tMinutesTillTrain + " minutes" + "</td>" +
+	      						"<td><i class='fa fa-window-close del-btn' aria-hidden='true'></i>" + "</td>" +
 	      						"</tr>");
 	});
+
+	// Data Retrieval
+	database.ref().on("child_removed", function(childSnapshot) {
+		var deletedTrain = childSnapshot.val();
+		var deletedName = deletedTrain.name;
+		$("[train="+ deletedName + "]").remove();
+	});
+
 });
