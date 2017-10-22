@@ -77,7 +77,7 @@ $(document).ready( function() {
 	      						"<td>" + trainName + "</td>" +
 	      						"<td>" + trainDestination + "</td>" +
 	      						"<td>" + trainFrequency + " minutes" + "</td>" +
-	      						"<td>" + moment(nextTrain).format("HH:mm") + "</td>" +
+	      						"<td>" + moment(nextTrain).format("hh:mm a") + "</td>" +
 	      						"<td>" + tMinutesTillTrain + " minutes" + "</td>" +
 	      						"<td><i class='fa fa-window-close del-btn' aria-hidden='true'></i>" + "</td>" +
 	      						"</tr>");
