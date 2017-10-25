@@ -11,7 +11,7 @@ $(document).ready( function() {
 	firebase.initializeApp(config);;
 	var database = firebase.database();
 
-	// Empty variable for data transfer
+	// Empty variables for data transfer
 	var trainName;
 	var trainDestination;
 	var startTime;
@@ -22,9 +22,13 @@ $(document).ready( function() {
     	location.reload();
 	});
 
+	// Delete button removes a train
 	$("body").on("click", ".del-btn", function() {
+		//From the table
 		var rowId = $(this).closest("tr").children("td:first").text();
 		$(this).closest("tr").remove();
+
+		//And from the database
 		var dataKey
 		database.ref().orderByChild("name").equalTo(rowId).on("child_added", function(snapshot) {
   			dataKey = snapshot.key;
@@ -72,7 +76,7 @@ $(document).ready( function() {
 	    var tMinutesTillTrain = trainFrequency - tRemainder;
 	    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 
-	    // Display latest train inforamtion in the web table
+	    // Display latest train information in the table
 	    $("#train-rows").append("<tr train='" + trainName + "'>" +
 	      						"<td>" + trainName + "</td>" +
 	      						"<td>" + trainDestination + "</td>" +
@@ -83,11 +87,10 @@ $(document).ready( function() {
 	      						"</tr>");
 	});
 
-	// Data Retrieval
+	// Remove any train that was deleted from the database
 	database.ref().on("child_removed", function(childSnapshot) {
 		var deletedTrain = childSnapshot.val();
 		var deletedName = deletedTrain.name;
-		$("[train="+ deletedName + "]").remove();
+		$("[train='"+ deletedName + "']").remove();
 	});
-
 });
