@@ -64,3 +64,8 @@ button:hover {
 body {
 	background-color: rgba(85, 107, 47, 0.75);
 }
+
+#formIncomplete {
+	padding-bottom: 20px;
+	color: red;
+}

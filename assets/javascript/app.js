@@ -46,16 +46,21 @@ $(document).ready( function() {
 		startTime = $("#start-time").val().trim();
 		trainFrequency = $("#train-frequency").val().trim();
 
-		// Reset form after submission
-		$("#train-form").trigger("reset");
+		if (trainName === "" || trainDestination === "" || startTime === "" || trainFrequency === "") {
+			$("#formIncomplete").html("The form is incomplete!");
+		} else {
+			// Reset form after submission
+			$("#formIncomplete").html("")
+			$("#train-form").trigger("reset");
 
-		// Send Data to Firebase
-		database.ref().push({
-			name: trainName,
-			destination: trainDestination,
-			time: startTime,
-			frequency: trainFrequency
-		});
+			// Send Data to Firebase
+			database.ref().push({
+				name: trainName,
+				destination: trainDestination,
+				time: startTime,
+				frequency: trainFrequency
+			});
+		};
 	});
 
 	// Data Retrieval
