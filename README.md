@@ -1,6 +1,6 @@
 ## train-schedules
 
-* An attractive web app for calculating and displaying train schedules  
+* An attractive web app for calculating and displaying train schedules.   
 [The Astrological Research Tool](https://deep-research.github.io/train-schedules/)
 
 ### Project Functionality
