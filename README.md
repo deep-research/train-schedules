@@ -11,12 +11,9 @@
 
 ### Installing
 
-1. Run the `index.html` file in a browser.
-
-## Deployment
-
-* The website can be deployed through Github Pages.
-* Create a new database in Firebase and change the `app.js` to connect to it.
+1. Run the `index.html` file to see the website.
+2. Create a new database in Firebase and change information the `app.js` to connect to it.
+3. The website can be deployed through Github Pages.
 
 ## Built With
 
