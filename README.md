@@ -15,12 +15,12 @@
 2. Create a new database in Firebase and change information the `app.js` to connect to it.
 3. The website can be deployed through Github Pages.
 
-## Built With
+### Built With
 
 * [Google Firebase](https://firebase.google.com/) - Firebase is Google's mobile platform that helps you quickly develop high-quality apps and grow your business.
 * [README-Template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) - A template to make good README.md.
 
 
-## Author
+### Author
 
 * [Deep Research](https://github.com/deep-research)
